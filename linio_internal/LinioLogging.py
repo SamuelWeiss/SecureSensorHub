@@ -10,6 +10,8 @@ from bridgeclient import BridgeClient as bridgeclient
 prefix_path = "/mnt/sda1/deviceData/"
 
 def read_all_device_data(bridge):
+	while not bridge.connected():
+		time.sleep(5)
 	data_ready = bridge.get("ready")
 	while data_ready != "True":
 		time.sleep(.2)
@@ -46,9 +48,19 @@ def write_to_disk(db):
 	with open(prefix_path + "devices.csv", 'w') as f:
 		f.write(out)
 
+def wait_on_bridge_connection(bridge):
+	while True:
+		try:
+			json = bridge.socket_open()
+		except Exception as e:
+			time.sleep(1)
+			print "connection not open!"
+
 def main():
 
-	bridgeConnection = bridgeclient()                         
+	bridgeConnection = bridgeclient()
+
+	wait_on_bridge_connection(bridgeConnection)                       
 
 	last_update = 0
 
