@@ -30,19 +30,56 @@ if ($data['response'] != $valid_response)
     die('Wrong Credentials!');
                                    
 // ok, valid username & password
-echo "<!DOCTYPE html>";
-echo "<head>";
-echo '<link rel="stylesheet" href="style.css">';
-echo '<title>TeamOrangeHub</title>';
-echo "</head>";
 
-echo "<html><body>\n\n";
-echo 'Hello ' . $data['username'].". Lookin' good today!<br>";
+// Head
+echo "<!DOCTYPE html>\n";
+echo "<head>\n";
+echo '<link rel="stylesheet" href="./style.css">'."\n";
+echo '<title>TeamOrangeHub</title>'."\n";
+echo "</head>\n";
+
+// Body
+echo "<html>\n";
+echo "<body>\n";
+echo "<table>\n";
+echo "<th>Secure Sensor Hub</th>\n";
+echo '<th>Hello ' . $data['username'].". Lookin' good today!</th>\n";
+
+echo "<tr>\n";
+// Navigation
+// all of these are placeholders
+echo "<td>\n";
+echo "<div>\n";
+echo "Navigation:<br>\n";
+echo "Home <br>\n";
+echo "Settings<br>\n";
+echo "Controls<br>\n";
+echo "Data<br>\n";
+echo "Sensors<br>\n";
+echo "</div>\n";
+echo "</td>\n";
+
+echo "<td>\n";
+echo "<table>\n";
+
+// sensor data tables
 $devices = get_devices();
+
+// generate the table headers
 foreach ($devices as $device) {
-    echo "<br>Data from ".$device.":\n";
-    csv_to_html_table("/mnt/sda1/deviceData/".$device.".csv");
+    echo "<th>Data from ".$device."</th>\n";
 }
+echo "<tr>\n";
+foreach ($devices as $device) {
+    echo "<td>\n";
+    csv_to_html_table("/mnt/sda1/deviceData/".$device.".csv");
+    echo "</td>\n";
+}
+echo "</tr>\n";
+echo "</table>\n";
+echo "</td>\n";
+echo "</tr>\n";
+echo "</table>\n";
 echo "\n</body></html>";
                                    
                                    
