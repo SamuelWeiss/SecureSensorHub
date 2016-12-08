@@ -30,11 +30,18 @@ if ($data['response'] != $valid_response)
     die('Wrong Credentials!');
                                    
 // ok, valid username & password
+echo "<!DOCTYPE html>";
+echo "<head>";
+echo '<link rel="stylesheet" href="style.css">';
+echo '<title>TeamOrangeHub</title>';
+echo "</head>";
+
 echo "<html><body>\n\n";
-echo 'Hello ' . $data['username'].". Lookin' good today!\n\n\n";
+echo 'Hello ' . $data['username'].". Lookin' good today!<br>";
 $devices = get_devices();
 foreach ($devices as $device) {
-    csv_to_html_table("deviceData/".$device.".csv");
+    echo "<br>Data from ".$device.":\n";
+    csv_to_html_table("/mnt/sda1/deviceData/".$device.".csv");
 }
 echo "\n</body></html>";
                                    
@@ -61,8 +68,6 @@ function csv_to_html_table($filename)
 {
     echo "<table>";
     $f = fopen($filename, "r");
-    echo $f;
-    echo "test";
     while (($line = fgetcsv($f)) !== false) {
         echo "<tr>";
         foreach ($line as $cell) {
@@ -77,7 +82,7 @@ function csv_to_html_table($filename)
 function get_devices()
 {
     $devices = array();
-    $f = fopen("deviceData/devices.csv", "r");
+    $f = fopen("/mnt/sda1/deviceData/devices.csv", "r");
     while (($line = fgetcsv($f)) !== false) {
         foreach ($line as $cell) {
             $devices[] = trim($cell);
