@@ -1,0 +1,7 @@
+!StageState
+directories: !!set {bin: null}
+files: !!set {bin/SSH: null, bin/server: null}
+project_options: {}
+properties:
+  filesets: {}
+  stage: ['*']

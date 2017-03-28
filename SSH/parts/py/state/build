@@ -1,0 +1,9 @@
+!BuildState
+project_options: {deb_arch: armhf}
+properties:
+  after: []
+  build-attributes: []
+  build-packages: []
+  disable-parallel: false
+  organize: {}
+schema_properties: []

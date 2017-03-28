@@ -1,0 +1,212 @@
+Package: ansible
+Priority: optional
+Section: universe/admin
+Installed-Size: 8940
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Harlan Lieberman-Berg <hlieberman@debian.org>
+Architecture: all
+Version: 2.1.1.0-1~ubuntu16.04.1
+Depends: python-crypto (>= 2.6), python-jinja2, python-paramiko, python-pkg-resources, python-yaml, python:any (<< 2.8), python:any (>= 2.7.5-5~), python-httplib2, python-netaddr
+Recommends: python-selinux
+Suggests: sshpass
+Filename: pool/universe/a/ansible/ansible_2.1.1.0-1~ubuntu16.04.1_all.deb
+Size: 1248662
+MD5sum: c76f3adcb9c6e945dd389de216210d42
+SHA1: f699515b6c5d683a9a8e43be0804638dc4a50af1
+SHA256: 099d3a37bd53b16685726e43447bd9cf26977a9d3dd25816b64636520f05c778
+Description: Configuration management, deployment, and task execution system
+Homepage: http://ansible.com
+Description-md5: db2b21b0d2286fccc4401d5982361488
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Origin: Ubuntu
+
+Package: appstream-index
+Priority: optional
+Section: universe/admin
+Installed-Size: 12
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Matthias Klumpp <mak@debian.org>
+Architecture: all
+Source: appstream
+Version: 0.10.1-1~ubuntu16.04.1
+Depends: appstream (>= 0.10.1-1~ubuntu16.04.1)
+Filename: pool/universe/a/appstream/appstream-index_0.10.1-1~ubuntu16.04.1_all.deb
+Size: 1848
+MD5sum: 007132bdb44d247177c16386b887f886
+SHA1: fe36ab081c591b4b47aa7e162f4ac7fc713914a7
+SHA256: 27707ec37a08b205172750e4f1a9b2e19162e6291f0c0a7e2fa3f26bc0957e81
+Description: Transitional package (appstream-index -> appstream)
+Homepage: http://www.freedesktop.org/wiki/Distributions/AppStream/
+Description-md5: 303e99a55dc11a5b27161702a0cd1d09
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Origin: Ubuntu
+
+Package: appstream-index
+Priority: optional
+Section: universe/admin
+Installed-Size: 13
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Matthias Klumpp <mak@debian.org>
+Architecture: all
+Source: appstream
+Version: 0.10.6-1~ubuntu16.04.2
+Depends: appstream (>= 0.10.6-1~ubuntu16.04.2)
+Filename: pool/universe/a/appstream/appstream-index_0.10.6-1~ubuntu16.04.2_all.deb
+Size: 1812
+MD5sum: 693b33442a428a384462d92056ed0aec
+SHA1: 0ffa3d3aaece2bf500c7e6bdde18785b389db462
+SHA256: 9cbfce11bca7bca3ccee2d4af8b3b72638b0225f0b6f070857c793b1f213ac28
+Description: Transitional package (appstream-index -> appstream)
+Homepage: http://www.freedesktop.org/wiki/Distributions/AppStream/
+Description-md5: 303e99a55dc11a5b27161702a0cd1d09
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Origin: Ubuntu
+
+Package: bsdcpio
+Priority: optional
+Section: universe/utils
+Installed-Size: 27
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Libarchive Maintainers <ah-libarchive@debian.org>
+Architecture: all
+Source: libarchive
+Version: 3.2.1-2~ubuntu16.04.1
+Depends: libarchive-tools (>= 3.2.1-2~ubuntu16.04.1)
+Filename: pool/universe/liba/libarchive/bsdcpio_3.2.1-2~ubuntu16.04.1_all.deb
+Size: 4174
+MD5sum: ecbaa11674093630618a924eaca8270f
+SHA1: a08ecc18bb2b380905cb891a447d9fca781be72f
+SHA256: c9620d3b62845bec1f1aef9525356d06c0cd7ac80dca54b66d9fa1af74bb7080
+Description: transitional dummy package for moving bsdcpio to libarchive-tools
+Homepage: http://www.libarchive.org/
+Description-md5: 0d0614fc5b8366385e38162f0cfff695
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Origin: Ubuntu
+
+Package: bsdtar
+Priority: optional
+Section: universe/utils
+Installed-Size: 27
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Libarchive Maintainers <ah-libarchive@debian.org>
+Architecture: all
+Source: libarchive
+Version: 3.2.1-2~ubuntu16.04.1
+Depends: libarchive-tools (>= 3.2.1-2~ubuntu16.04.1)
+Filename: pool/universe/liba/libarchive/bsdtar_3.2.1-2~ubuntu16.04.1_all.deb
+Size: 4162
+MD5sum: 21701ad94d8fb6932b644811eef413fa
+SHA1: 9d8ebe5c910a027ac9f4aade72c0f52dac1b36c4
+SHA256: f4f036088490d8650f66645168705d677c4f8d49cf24411fb520c603b1309c69
+Description: transitional dummy package for moving bsdtar to libarchive-tools
+Homepage: http://www.libarchive.org/
+Description-md5: 74b38cb72c3d7fd4cf1c23df80a00577
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Origin: Ubuntu
+
+Package: dh-systemd
+Priority: extra
+Section: universe/admin
+Installed-Size: 104
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debhelper Maintainers <debhelper-devel@lists.alioth.debian.org>
+Architecture: all
+Source: debhelper
+Version: 10.2.2ubuntu1~ubuntu16.04.1
+Depends: debhelper (>= 9.20160709)
+Filename: pool/universe/d/debhelper/dh-systemd_10.2.2ubuntu1~ubuntu16.04.1_all.deb
+Size: 2604
+MD5sum: a1f6cf39f6b8dd8f760132f5851fb998
+SHA1: e57247abeea9942aaf922b2393992b0c7ca8d6b3
+SHA256: e44f5d87027dc0f9fa3800a00bb0279e8b0b05ca0ee7832f0adb22b587a79a59
+Description: debhelper add-on to handle systemd unit files - transitional package
+Multi-Arch: foreign
+Description-md5: 67a68071a0cbbaa9df2bcd81ec5a29b1
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Origin: Ubuntu
+
+Package: ldc
+Priority: extra
+Section: universe/devel
+Installed-Size: 27506
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian D Language Group <pkg-d-devel@lists.alioth.debian.org>
+Architecture: armhf
+Version: 1:1.1.0+b3-1build1~ubuntu16.04.1
+Provides: d-compiler, d-v2-compiler
+Depends: libphobos2-ldc-dev (= 1:1.1.0+b3-1build1~ubuntu16.04.1), libc6 (>= 2.15), libconfig9, libgcc1 (>= 1:4.2), libphobos2-ldc68 (>= 1:0.17.0~beta2-1), libstdc++6 (>= 5.2), libtinfo5 (>= 6), zlib1g (>= 1:1.2.0)
+Filename: pool/universe/l/ldc/ldc_1.1.0+b3-1build1~ubuntu16.04.1_armhf.deb
+Size: 9860410
+MD5sum: 960ecf3d77333ce0fe9e2c660330ba1b
+SHA1: 7bf3db683ff192bf92bd11e7499aaf09be68ba72
+SHA256: 35a38166818c205239a64aafc5ad119a19d11793e3a1110ef2c86a9c358f78a9
+Description: LLVM D Compiler
+Homepage: https://github.com/ldc-developers/ldc
+Description-md5: 486f2a4a0d475755a0957a9b047ea2ef
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Origin: Ubuntu
+
+Package: libmustache-d-dev
+Priority: optional
+Section: universe/libdevel
+Installed-Size: 344
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Matthias Klumpp <mak@debian.org>
+Architecture: armhf
+Source: mustache-d
+Version: 0.1.1-1~ubuntu16.04.1
+Filename: pool/universe/m/mustache-d/libmustache-d-dev_0.1.1-1~ubuntu16.04.1_armhf.deb
+Size: 45948
+MD5sum: 618574d15c911771d5f0de3e0cd98d25
+SHA1: 5348908daaeb6d1e7b39d1d415fcdc7bc7dfc919
+SHA256: ed3f6bc06ed175aafb8880b48f3a665218a0c7b49a6cc22c69a4845971bead7b
+Description: Mustache rendering engine for D
+Homepage: https://github.com/repeatedly/mustache-d
+Description-md5: dd778293605d48aeb3ccb2c396a14f94
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Origin: Ubuntu
+
+Package: libphobos2-ldc-dev
+Priority: extra
+Section: universe/libdevel
+Installed-Size: 38804
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian D Language Group <pkg-d-devel@lists.alioth.debian.org>
+Architecture: armhf
+Source: ldc
+Version: 1:1.1.0+b3-1build1~ubuntu16.04.1
+Depends: libphobos2-ldc71 (= 1:1.1.0+b3-1build1~ubuntu16.04.1)
+Filename: pool/universe/l/ldc/libphobos2-ldc-dev_1.1.0+b3-1build1~ubuntu16.04.1_armhf.deb
+Size: 4102904
+MD5sum: 2f4cc78b47cc25b4bdd5585d566b6156
+SHA1: 028bca5ff82c31292920350ba0020506c1ea69a2
+SHA256: 4cb56e4d5a2bb00a97b8eaf0c86ceb92362586f8b686dad60a10d423256dd494
+Description: LLVM D Compiler - Phobos2 Standard library, imports
+Homepage: https://github.com/ldc-developers/ldc
+Description-md5: b341b8776d65d648c3d9a2d216c9f827
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Origin: Ubuntu
+
+Package: libphobos2-ldc71
+Priority: optional
+Section: universe/libdevel
+Installed-Size: 4905
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian D Language Group <pkg-d-devel@lists.alioth.debian.org>
+Architecture: armhf
+Source: ldc
+Version: 1:1.1.0+b3-1build1~ubuntu16.04.1
+Depends: libc6 (>= 2.8), libgcc1 (>= 1:3.5), zlib1g (>= 1:1.2.0)
+Suggests: libphobos2-ldc-dev (= 1:1.1.0+b3-1build1~ubuntu16.04.1)
+Filename: pool/universe/l/ldc/libphobos2-ldc71_1.1.0+b3-1build1~ubuntu16.04.1_armhf.deb
+Size: 914906
+MD5sum: 9520484f0a902e741f1adca59853e8be
+SHA1: 008d143499acf10acfa690d88dc14344f265f4e8
+SHA256: 9d5472bc6c3994769b9f93f141c08661fee049c8510f5ac7e70d25d81faf01b8
+Description: LLVM D Compiler - Phobos2 Standard library, shared objects
+Multi-Arch: same
+Homepage: https://github.com/ldc-developers/ldc
+Description-md5: 008779e61b9f161b2f64c0069b695f3a
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Origin: Ubuntu
+

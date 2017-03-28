@@ -1,0 +1,23 @@
+name: securesensorhub
+version: 0.0.1
+summary: Development version of the Secure Sensor Hub software
+description: This module implements a backend to interface with devices and a web server
+confinement: strict
+
+apps:
+  testing:
+    command: ./bin/test
+  webchat:
+    command: bin/server
+    daemon: simple
+    plugs: [network-bind]
+
+parts:
+  py:
+    plugin: python2
+  server:
+    plugin: nodejs
+    source: .
+  make-project:
+    plugin: make
+    source: .

@@ -1,0 +1,14 @@
+{
+    "name": "Secure-Sensor-Hub-Server",
+    "version": "0.0.1",
+    "description": "NodeJS server for secure IoT devices",
+    "license": "GPL-3.0",
+    "author": "Sam Weiss",
+    "private": true,
+    "bin": "./server.js",
+    "dependencies": {
+	"express": "^4.10.2",
+	"socket.io": "^1.3.7",
+	"passport-oauth2": "1.x.x"
+    }
+}
