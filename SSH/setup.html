@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+  	<head>
+    	<title>Setup</title>
+  	</head>
+  	<body>
+  		<h1>Welcome to the Secure Sensor Hub!</h1>
+  		<h2>There are no user accounts yet, please enter your credentials:</h2>
+      	<form action="">
+     	<table width="100%">
+      		<tr><td width="5%"><font color="white">Username: </font></td><td><input id="u" autocomplete="off" /></td></tr>
+      		<tr><td width="5%"><font color="white">Password: </font></td><td><input type="password" id="p" autocomplete="off" /><button>Send</button></td></tr>
+      		</table>
+    	</form>
+  	<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+  	<script src="http://localhost:3000/socket.io/socket.io.js"></script>
+  	<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+  	<script>
+	    var socket = io();
+	    $('form').submit(function(){
+	    	socket.emit('add user without credentials', $('#u').val(), $('#p').val());
+	      	console.log("sent data");
+	      	// reloading isn't really what we want to do
+	      	// really we want to wipe the DOM and just keep going
+	      	// location.reload();
+	      	// stub function for now
+	      	load_main();
+	    });
+
+  	</script>
+  	</body>
+</html>
