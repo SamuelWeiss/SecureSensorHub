@@ -11,6 +11,23 @@ const dbUtil = require('./dbUtil');
 const crypto = require('crypto');
 
 
+var session_keys = [];
+
+function generate_session_key () {
+	var my_key = crypto.randomBytes(256).toString('hex');
+	session_keys.push({'key':my_key, 'timestamp':new Date().getTime()});
+	return my_key;
+}
+
+function purge_old_session_keys () {
+	for (var i = session_keys.length - 1; i >= 0; i--) {
+		// if a session key is more than one day old then purge it.
+		if (new Date().getTime() - session_keys[i].timestamp > 86400000) {
+		    array.splice(i, 1);
+		}
+	}
+}
+
 // var host = process.env.ARANGODB_HOST;
 // var port = process.env.ARANGODB_PORT;
 // var database = process.env.ARANGODB_DB;
@@ -26,6 +43,12 @@ var user_db = dbUtil.setup_user_database(db);
 
 // setup the collection to store data
 var collection = dbUtil.setup_user_collection(user_db);
+
+// create the data database
+var data_db = dbUtil.setup_data_database(db);
+
+//setup the collection to store data
+var data_collection = dbUtil.setup_data_collection(data_db);
 
 collection.truncate().then(
   () => console.log('Truncated collection'),
@@ -55,18 +78,18 @@ db.createDatabase('data_db').then(
 */
 
 
-// app.get('/hub', function(req, res){
-//     res.sendFile(__dirname + '/hub.html');
-// });
+app.get('/hub', function(req, res){
+    res.sendFile(__dirname + '/hub.html');
+});
 
 app.get('/', function(req, res){
 	if (confirmed_users) {
-	    res.sendFile(__dirname + '/hub.html');
+	    res.sendFile(__dirname + '/login.html');
 	} else {
 		dbUtil.no_user_records(user_db).then(function(result) {
 			confirmed_users = !result;
 			if (confirmed_users) {
-			    res.sendFile(__dirname + '/hub.html');
+			    res.sendFile(__dirname + '/login.html');
 			} else {
 			    res.sendFile(__dirname + '/setup.html');		
 			}
@@ -75,7 +98,11 @@ app.get('/', function(req, res){
 });
 
 app.get('/chat', function(req, res){
-  res.sendFile(__dirname + '/index.html');
+  res.sendFile(__dirname + '/chat.html');
+});
+
+app.get('/lib.js', function(req, res){
+  res.sendFile(__dirname + '/lib.js');
 });
 
 // socket code
@@ -92,21 +119,25 @@ io.on('connection', function(socket){
   	// look it up in the database
   	dbUtil.check_user_credentials(user_db, user, pass).then(function(result) {
   		if (result) {
-  			io.emit('login_success', user);
+  			var session_key = generate_session_key();
+  			session_keys[session_keys.length] = session_key;
+  			io.emit('login success', session_key);
   		} else {
-  			io.emit('login_failure', user);
+  			io.emit('login failure', user);
   		}
+  		dbUtil.list_db(user_db);
   	});
   });
   socket.on('add user without credentials', function(user, pass) {
-  	console.log('adding new user');
   	dbUtil.add_initial_user_credentials(user_db, user, pass, crypto.randomBytes(256).toString('hex')).then(function(result) {
   		if (result) {
-  			io.emit('credential add success', user);
+  			var session_key = generate_session_key();
+  			io.emit('credential add success', session_key);
   			confirmed_users = true;
   		} else {
   			io.emit('credential add failure', user);
   		}
+  		dbUtil.list_db(user_db);
   	});
   });
   socket.on('add user with credentials', function(auth_user, auth_pass, new_user, new_pass) {
@@ -117,18 +148,23 @@ io.on('connection', function(socket){
   		} else {
   			io.emit('credential add failure', user);
   		}
+  		dbUtil.list_db(user_db);
   	});
   });
-  socket.on('get data', function(user, pass) {
-  	dbUtil.get_data(user_db, user, pass).then(function(result) {
-  		if (result == 'no data') {
-  			io.emit('no data');
-  		} else if (!result) {
-  			io.emit('general failure');
-  		} else {
-  			io.emit('data', result)
-  		}
-  	});
+
+  socket.on('get data', function(session) {
+  	purge_old_session_keys();
+  	if (session_keys.indexOf(session)) {
+  		dbUtil.get_data(db).then(function(result) {
+	  		if (result == 'no data') {
+	  			io.emit('no data');
+	  		} else if (!result) {
+	  			io.emit('general failure');
+	  		} else {
+	  			io.emit('data', result)
+	  		}
+  		});
+  	}
   });
 });
 

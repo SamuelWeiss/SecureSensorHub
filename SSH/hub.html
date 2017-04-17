@@ -6,7 +6,16 @@
   <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
   <script>
     var socket = io();
-    socket.emit('login', 'sam', 'hunter22');
+    // first check for a cookie:
+    console.log(document.cookie);
+    if (document.cookie) {
+    	// no need to do a login
+    	$('#login').hide();
+    } else {
+    	// maybe hide the rest of the page? we'll see
+    	console.log('have cookie');
+    }
+    //socket.emit('login', 'sam', 'hunter22');
   </script>
   </body>
 </html>

@@ -1,10 +1,46 @@
 <!doctype html>
+
 <html>
-  <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
-  <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
-  <script>
-    var socket = io();
-    socket.emit('login', 'sam', 'hunter22');
-  </script>
+  <head>
+    <title>Login</title>
+  </head>
+  <body>
+    <h1>Please log in to your account.</h1>
+    <form action="">
+      <table width="100%">
+        <tr><td width="5%"><font color="white">Username: </font></td><td><input id="u" autocomplete="off" /></td></tr>
+        <tr><td width="5%"><font color="white">Password: </font></td><td><input type="password" id="p" autocomplete="off" /><button>Send</button></td></tr>
+      </table>
+    </form>
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script>
+      var socket = io();
+      $('form').submit(function(){
+        socket.emit('login', $('#u').val(), $('#p').val());
+        console.log("sent data");
+        return false;
+      });
+      // socket.emit('login', 'sam', 'hunter22');
+      socket.on('login success', function (session) {
+        delete_cookie("session");
+        var tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        var str = "session=" + JSON.stringify(session) + "; expires=" + tomorrow.toString() +";";
+        console.log(str);
+        document.cookie = str
+        console.log(document.cookie);
+        // Location.reload() don't reload, go to the hub
+        window.location.href = 'hub';
+      });
+      socket.on('login failure', function(user) {
+        alert("Invalid credentials! Please try again.");
+        // $('#u').val() = '';
+        // $('#p').val() = '';
+      });
+      function delete_cookie( name ) {
+        document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+      }
+    </script>
   </body>
 </html>
