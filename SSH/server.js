@@ -70,11 +70,12 @@ user = {
 */
 
 /*
-TODO: figure out how to integrate here
-db.createDatabase('data_db').then(
-  () => console.log('Database created'),
-  err => console.error('Failed to create database:', err)
-);
+Data Record Prototype
+reading = {
+	sensor_name: 'name',
+	reading: 'reading:unit',
+	timestamp: Date()
+}
 */
 
 
